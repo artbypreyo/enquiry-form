@@ -2,16 +2,15 @@ import React, { useRef, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import './style.css'
 
+const websiteUrl = 'https://artbypreyo.github.io/enquiry-form/'
+const whatsappUrl = `https://wa.me/918918665336?text=${encodeURIComponent('Hi Art By Preyo, I’m interested in your artwork. Could you please share more details?')}`
+
 const socialLinks = [
   { label: 'Instagram', href: 'https://www.instagram.com/artbypreyo/' },
   { label: 'Facebook', href: 'https://www.facebook.com/artbypreyo' },
   { label: 'YouTube', href: 'https://www.youtube.com/@artbypreyo' },
-  { label: 'WhatsApp', href: 'https://wa.me/918918665336' },
+  { label: 'WhatsApp', href: whatsappUrl },
 ]
-
-const pageUrl = new URL(window.location.href)
-pageUrl.search = '?sent=1'
-pageUrl.hash = ''
 
 function SocialIcon({ label }) {
   if (label === 'Instagram') {
@@ -67,7 +66,7 @@ function App() {
               <p className="eyebrow">ENQUIRY SENT</p>
               <h1 id="success-title">Thank you for reaching out<span className="period">.</span></h1>
               <p>Your message is on its way to Art By Preyo. We’ll get back to you using the contact details you shared.</p>
-              <a className="primary-link" href={window.location.pathname}>Send another enquiry</a>
+              <a className="primary-link" href={websiteUrl}>Return to website</a>
             </section>
           ) : (
             <div className="content-grid">
@@ -86,7 +85,7 @@ function App() {
                 <p className="form-intro">We’ll reply using the contact details you provide.</p>
                 <form ref={formRef} action="https://formsubmit.co/kundupreyasi1997@gmail.com" method="POST">
                   <input type="hidden" name="_subject" value="New Art By Preyo enquiry" />
-                  <input type="hidden" name="_next" value={pageUrl.href} />
+                  <input type="hidden" name="_next" value={websiteUrl} />
                   <input type="hidden" name="_template" value="table" />
                   <input type="text" name="_honey" className="honeypot" tabIndex="-1" autoComplete="off" aria-hidden="true" />
 
